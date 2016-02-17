@@ -44,6 +44,12 @@
     <ClCompile Include="ViewModelBase.cpp">
       <Filter>ViewModel</Filter>
     </ClCompile>
+    <ClCompile Include="BindablePage.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="SecondViewModel.cpp">
+      <Filter>ViewModel</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -72,6 +78,12 @@
       <Filter>Common</Filter>
     </ClInclude>
     <ClInclude Include="ViewModelBase.h">
+      <Filter>ViewModel</Filter>
+    </ClInclude>
+    <ClInclude Include="BindablePage.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="SecondViewModel.h">
       <Filter>ViewModel</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,6 +1,7 @@
 #pragma once
 #include "ViewModelBase.h"
 #include "MainViewModel.h"
+#include "SecondViewModel.h"
 
 namespace MVVM_CX 
 {
@@ -13,11 +14,15 @@ namespace MVVM_CX
 			ViewModelLocator();
 			property ViewModelBase^ MainViewModel
 			{
-				ViewModel::ViewModelBase^ get();
+				ViewModelBase^ get();
+			}
+			property ViewModelBase^ SecondViewModel
+			{
+				ViewModelBase^ get();
 			}
 
 		private:
-			ViewModel::ViewModelBase^ _viewModel;
+			ViewModelBase ^_main;
 		};
 	}
 }

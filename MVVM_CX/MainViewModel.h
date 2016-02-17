@@ -1,5 +1,4 @@
 #pragma once
-#include "ViewModelBase.h"
 #include "RelayCommand.h"
 #include "Person.h"
 
@@ -27,10 +26,6 @@ namespace MVVM_CX
 			{
 				Common::RelayCommand^ get();
 			}
-
-		internal:
-			void OnNavigatedTo(WUXN::NavigationEventArgs^ e) override;
-			void OnNavigatedFrom(WUXN::NavigationEventArgs^ e) override;
 			
 		private:
 			std::vector<Model::Person^> _people;

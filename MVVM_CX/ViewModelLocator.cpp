@@ -6,10 +6,15 @@ using namespace ViewModel;
 
 ViewModelLocator::ViewModelLocator()
 {
-	_viewModel = ref new ViewModel::MainViewModel();
+	_main = ref new ViewModel::MainViewModel();
 }
 
 ViewModel::ViewModelBase^ ViewModelLocator::MainViewModel::get()
 {
-	return _viewModel;
+	return _main;
+}
+
+ViewModel::ViewModelBase^ ViewModelLocator::SecondViewModel::get()
+{
+	return ref new ViewModel::SecondViewModel();
 }
