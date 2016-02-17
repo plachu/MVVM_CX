@@ -1,5 +1,5 @@
 #pragma once
-#include "BindableBase.h"
+#include "ViewModelBase.h"
 #include "RelayCommand.h"
 #include "Person.h"
 
@@ -7,27 +7,31 @@ namespace MVVM_CX
 {
 	namespace ViewModel
 	{
-		namespace WFC = Windows::Foundation::Collections;
-
+		typedef Windows::Foundation::Collections::IObservableVector<Model::Person^>^ PersonVector;
+		
 		[Windows::UI::Xaml::Data::Bindable]
-		public ref class MainViewModel sealed : public Common::BindableBase
+		public ref class MainViewModel sealed : public ViewModelBase
 		{
 		public:
 			MainViewModel();
-			property WFC::IObservableVector<Model::Person^>^ People
+			property PersonVector People
 			{
-				WFC::IObservableVector<Model::Person^>^ get();
+				PersonVector get();
 			}
 			property Model::Person^ SelectedPerson
 			{
 				Model::Person^ get();
 				void set(Model::Person^ item);
 			}
-			property Common::RelayCommand^ GoToSecondPageCommand
+			property Common::RelayCommand^ GoToSecondPageCommand 
 			{
 				Common::RelayCommand^ get();
 			}
 
+		internal:
+			void OnNavigatedTo(WUXN::NavigationEventArgs^ e) override;
+			void OnNavigatedFrom(WUXN::NavigationEventArgs^ e) override;
+			
 		private:
 			std::vector<Model::Person^> _people;
 			Model::Person^ _selectedPerson;

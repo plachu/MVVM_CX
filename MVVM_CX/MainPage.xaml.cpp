@@ -5,6 +5,7 @@
 
 #include "pch.h"
 #include "MainPage.xaml.h"
+#include "ViewModelBase.h"
 
 using namespace MVVM_CX;
 
@@ -24,4 +25,14 @@ using namespace Windows::UI::Xaml::Navigation;
 MainPage::MainPage()
 {
 	InitializeComponent();
+}
+
+void MainPage::OnNavigatedTo(Windows::UI::Xaml::Navigation::NavigationEventArgs^ e)
+{
+	dynamic_cast<ViewModel::ViewModelBase^>(this->DataContext)->OnNavigatedToCommand->Execute(e);
+}
+
+void MainPage::OnNavigatedFrom(Windows::UI::Xaml::Navigation::NavigationEventArgs^ e)
+{
+	dynamic_cast<ViewModel::ViewModelBase^>(this->DataContext)->OnNavigatedFromCommand->Execute(e);
 }

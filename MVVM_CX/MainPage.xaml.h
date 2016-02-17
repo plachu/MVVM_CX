@@ -16,5 +16,9 @@ namespace MVVM_CX
 	{
 	public:
 		MainPage();
+
+	protected:
+		virtual void OnNavigatedTo(Windows::UI::Xaml::Navigation::NavigationEventArgs^ e) override;
+		virtual void OnNavigatedFrom(Windows::UI::Xaml::Navigation::NavigationEventArgs^ e) override;
 	};
 }

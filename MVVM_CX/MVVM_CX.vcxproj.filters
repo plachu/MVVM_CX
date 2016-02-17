@@ -41,6 +41,9 @@
     <ClCompile Include="RelayCommand.cpp">
       <Filter>Common</Filter>
     </ClCompile>
+    <ClCompile Include="ViewModelBase.cpp">
+      <Filter>ViewModel</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -67,6 +70,9 @@
     </ClInclude>
     <ClInclude Include="PageType.h">
       <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewModelBase.h">
+      <Filter>ViewModel</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

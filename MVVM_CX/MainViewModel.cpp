@@ -9,8 +9,9 @@ using namespace ViewModel;
 using namespace Platform;
 using namespace Platform::Collections;
 using namespace Windows::Foundation::Collections;
+using namespace Windows::UI::Xaml::Navigation;
 
-MainViewModel::MainViewModel() : _selectedPerson(nullptr)
+MainViewModel::MainViewModel() : ViewModelBase(), _selectedPerson(nullptr)
 {
 	_people.push_back(ref new Person("Adrian", "P³achecki"));
 	_people.push_back(ref new Person("Kamil", "Bukaf"));
@@ -18,7 +19,15 @@ MainViewModel::MainViewModel() : _selectedPerson(nullptr)
 	_people.push_back(ref new Person("Adrian", "Kajetan"));
 }
 
-IObservableVector<Person^>^ MainViewModel::People::get() {
+void MainViewModel::OnNavigatedTo(NavigationEventArgs^ e) {
+	//
+}
+
+void MainViewModel::OnNavigatedFrom(NavigationEventArgs^ e) {
+	//
+}
+
+PersonVector MainViewModel::People::get() {
 	return _people.empty() ? nullptr : ref new Vector<Person^>(_people);
 }
 
@@ -49,3 +58,4 @@ RelayCommand^ MainViewModel::GoToSecondPageCommand::get() {
 
 	return _goToSecondPageCommand;
 }
+

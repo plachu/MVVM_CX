@@ -9,7 +9,7 @@ ViewModelLocator::ViewModelLocator()
 	_viewModel = ref new ViewModel::MainViewModel();
 }
 
-ViewModel::MainViewModel^ ViewModelLocator::MainViewModel::get()
+ViewModel::ViewModelBase^ ViewModelLocator::MainViewModel::get()
 {
 	return _viewModel;
 }

@@ -152,6 +152,7 @@
     <ClInclude Include="SecondPage.xaml.h">
       <DependentUpon>SecondPage.xaml</DependentUpon>
     </ClInclude>
+    <ClInclude Include="ViewModelBase.h" />
     <ClInclude Include="ViewModelLocator.h" />
   </ItemGroup>
   <ItemGroup>
@@ -204,6 +205,7 @@
     <ClCompile Include="SecondPage.xaml.cpp">
       <DependentUpon>SecondPage.xaml</DependentUpon>
     </ClCompile>
+    <ClCompile Include="ViewModelBase.cpp" />
     <ClCompile Include="ViewModelLocator.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
