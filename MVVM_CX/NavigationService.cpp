@@ -6,9 +6,12 @@
 using namespace MVVM_CX;
 using namespace Common;
 
+using namespace Platform;
+using namespace Windows::Foundation;
 using namespace Windows::UI::Core;
 using namespace Windows::UI::Xaml::Controls;
 using namespace Windows::UI::Xaml::Interop;
+using namespace Windows::Phone::UI::Input;
 
 NavigationService::NavigationService(Frame^ frame)
 {
@@ -17,7 +20,12 @@ NavigationService::NavigationService(Frame^ frame)
 	}
 
 	_frame = frame;
-	SystemNavigationManager::GetForCurrentView()->BackRequested += ref new Windows::Foundation::EventHandler<BackRequestedEventArgs ^>(this, &Common::NavigationService::OnBackRequested);
+
+	SystemNavigationManager::GetForCurrentView()->BackRequested += ref new EventHandler<BackRequestedEventArgs ^>(this, &Common::NavigationService::OnBackRequested);
+
+	if (Windows::Foundation::Metadata::ApiInformation::IsTypePresent("Windows::Phone::UI::Input::HardwareButtons")) {
+		HardwareButtons::BackPressed += ref new EventHandler<BackPressedEventArgs ^>(this, &Common::NavigationService::OnHardwareButtonBackPressed);
+	}
 
 	_pages.emplace(PageType::MAIN, TypeName(MVVM_CX::MainPage::typeid));
 	_pages.emplace(PageType::SECOND, TypeName(MVVM_CX::SecondPage::typeid));
@@ -42,7 +50,7 @@ void NavigationService::NavigateTo(PageType type)
 }
 
 
-void NavigationService::NavigateTo(PageType type, Platform::Object^ parameter) 
+void NavigationService::NavigateTo(PageType type, Object^ parameter) 
 {
 	TypeName& pageType = _pages.at(type);
 
@@ -80,4 +88,11 @@ void NavigationService::UpdateBackButtonVisibility()
 void NavigationService::OnBackRequested(Object^ sender, BackRequestedEventArgs^ e)
 {
 	NavigateBack();
+	e->Handled = true;
+}
+
+void NavigationService::OnHardwareButtonBackPressed(Object^ sender, BackPressedEventArgs^ e)
+{
+	NavigateBack();
+	e->Handled = true;
 }

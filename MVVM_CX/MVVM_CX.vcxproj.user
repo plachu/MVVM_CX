@@ -4,7 +4,11 @@
     <ShowAllFiles>false</ShowAllFiles>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <DebuggerFlavor>AppHostLocalDebugger</DebuggerFlavor>
-    <WindowsAppEmulatorID>98CD6FA8-9114-4179-ACA3-38E5D23C77EE;Mobile Emulator 10.0.10586.0 WVGA 4 inch 512MB</WindowsAppEmulatorID>
+    <DebuggerFlavor>WindowsAppEmulatorDebugger</DebuggerFlavor>
+    <WindowsAppEmulatorID>9E663E22-CF9E-4F8A-AAC9-DC758E55304E;Mobile Emulator 10.0.10586.0 WXGA 4.5 inch 1GB</WindowsAppEmulatorID>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <DebuggerFlavor>WindowsAppEmulatorDebugger</DebuggerFlavor>
+    <WindowsAppEmulatorID>9E663E22-CF9E-4F8A-AAC9-DC758E55304E;Mobile Emulator 10.0.10586.0 WXGA 4.5 inch 1GB</WindowsAppEmulatorID>
   </PropertyGroup>
 </Project>

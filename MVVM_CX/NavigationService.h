@@ -11,6 +11,7 @@ namespace MVVM_CX
 		namespace WUC = Windows::UI::Core;
 		namespace WUXC = Windows::UI::Xaml::Controls;
 		namespace WUXI = Windows::UI::Xaml::Interop;
+		namespace WPUI = Windows::Phone::UI::Input;
 
 		public ref class NavigationService sealed : WUXC::INavigate
 		{
@@ -25,6 +26,7 @@ namespace MVVM_CX
 		private:
 			void UpdateBackButtonVisibility();
 			void OnBackRequested(Platform::Object^ sender, WUC::BackRequestedEventArgs^ e);
+			void OnHardwareButtonBackPressed(Platform::Object^ sender, WPUI::BackPressedEventArgs^ e);
 
 		private:
 			WUXC::Frame^ _frame;
